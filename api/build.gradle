@@ -31,3 +31,12 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+// api 모듈은 boot 실행 Jar만 필요
+bootJar {
+    enabled = true
+}
+
+jar {
+    enabled = false
+}
