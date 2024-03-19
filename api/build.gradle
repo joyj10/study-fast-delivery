@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot'           //버전은 부모 설정 버전을 따름(플러그인 사용정도만 작성)
+    id 'io.spring.dependency-management'    //버전은 부모 설정 버전을 따름
+}
+
+group = 'org.delivery'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    implementation project(':db')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// api 모듈은 boot 실행 Jar만 필요
+bootJar {
+    enabled = true
+}
+
+jar {
+    enabled = false
+}
