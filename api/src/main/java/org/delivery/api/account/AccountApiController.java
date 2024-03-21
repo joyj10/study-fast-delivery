@@ -25,7 +25,6 @@ public class AccountApiController {
                 .registeredAt(LocalDateTime.now())
                 .build();
 
-        return Api.ok(response);
+        return Api.OK(response);
     }
-
 }
