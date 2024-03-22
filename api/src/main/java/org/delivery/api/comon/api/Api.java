@@ -4,7 +4,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.delivery.api.comon.error.ErrorCodeInterface;
+import org.delivery.api.comon.error.ErrorCodeIfs;
 
 @Data
 @NoArgsConstructor
@@ -29,20 +29,20 @@ public class Api<T> {
         return api;
     }
 
-    public static Api<Object> ERROR(ErrorCodeInterface errorCode) {
+    public static Api<Object> ERROR(ErrorCodeIfs errorCode) {
         Api<Object> api = new Api<>();
         api.result = Result.ERROR(errorCode);
         return api;
     }
 
-    public static Api<Object> ERROR(ErrorCodeInterface errorCode, Throwable tx) {
+    public static Api<Object> ERROR(ErrorCodeIfs errorCode, Throwable tx) {
         Api<Object> api = new Api<>();
         api.result = Result.ERROR(errorCode, tx);
         return api;
     }
 
 
-    public static Api<Object> ERROR(ErrorCodeInterface errorCode, String description) {
+    public static Api<Object> ERROR(ErrorCodeIfs errorCode, String description) {
         Api<Object> api = new Api<>();
         api.result = Result.ERROR(errorCode, description);
         return api;

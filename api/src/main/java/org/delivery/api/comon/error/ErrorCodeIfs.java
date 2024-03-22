@@ -1,6 +1,6 @@
 package org.delivery.api.comon.error;
 
-public interface ErrorCodeInterface {
+public interface ErrorCodeIfs {
     Integer getHttpStatusCode();
     Integer getErrorCode();
     String getDescription();

@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.delivery.api.comon.error.ErrorCode;
-import org.delivery.api.comon.error.ErrorCodeInterface;
+import org.delivery.api.comon.error.ErrorCodeIfs;
 
 @Data
 @NoArgsConstructor
@@ -24,7 +24,7 @@ public class Result {
                 .build();
     }
 
-    public static Result ERROR(ErrorCodeInterface errorCode) {
+    public static Result ERROR(ErrorCodeIfs errorCode) {
         return Result.builder()
                 .resultCode(errorCode.getErrorCode())
                 .resultMessage(errorCode.getDescription())
@@ -32,7 +32,7 @@ public class Result {
                 .build();
     }
 
-    public static Result ERROR(ErrorCodeInterface errorCode, Throwable tx) {
+    public static Result ERROR(ErrorCodeIfs errorCode, Throwable tx) {
         return Result.builder()
                 .resultCode(errorCode.getErrorCode())
                 .resultMessage(errorCode.getDescription())
@@ -40,7 +40,7 @@ public class Result {
                 .build();
     }
 
-    public static Result ERROR(ErrorCodeInterface errorCode, String description) {
+    public static Result ERROR(ErrorCodeIfs errorCode, String description) {
         return Result.builder()
                 .resultCode(errorCode.getErrorCode())
                 .resultMessage(errorCode.getDescription())
