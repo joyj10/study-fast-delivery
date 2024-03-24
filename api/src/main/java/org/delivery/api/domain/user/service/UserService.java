@@ -46,4 +46,10 @@ public class UserService {
                 email, password, UserStatus.REGISTERED)
                 .orElseThrow(() -> new ApiException(UserErrorCode.USER_NOT_FOUND));
     }
+
+    @Transactional(readOnly = true)
+    public UserEntity getUserWithThrow(Long userId) {
+        return userRepository.findFirstByIdAndStatusOrderByIdDesc(userId, UserStatus.REGISTERED)
+                .orElseThrow(() -> new ApiException(UserErrorCode.USER_NOT_FOUND));
+    }
 }

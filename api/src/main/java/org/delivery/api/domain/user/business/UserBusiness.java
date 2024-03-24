@@ -48,4 +48,9 @@ public class UserBusiness {
         UserEntity userEntity = userService.login(request.getEmail(), request.getPassword());
         return tokenBusiness.issueToken(userEntity);
     }
+
+    public UserResponse me(Long userId) {
+        UserEntity userEntity = userService.getUserWithThrow(userId);
+        return userConverter.toResponse(userEntity);
+    }
 }
