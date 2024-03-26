@@ -8,7 +8,6 @@ import org.delivery.api.comon.error.ErrorCode;
 import org.delivery.api.comon.error.TokenErrorCode;
 import org.delivery.api.comon.exception.ApiException;
 import org.delivery.api.domain.token.business.TokenBusiness;
-import org.delivery.api.domain.token.model.TokenDto;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
@@ -23,7 +22,7 @@ import java.util.Objects;
 @Component
 public class AuthorizationInterceptor implements HandlerInterceptor {
 
-    private TokenBusiness tokenBusiness;
+    private final TokenBusiness tokenBusiness;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
