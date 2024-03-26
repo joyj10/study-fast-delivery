@@ -5,3 +5,20 @@ token:
     plus-hour: 1
   refresh-token:
     plus-hour: 12
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+    #        physical_naming_strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+    #        default_batch_fetch_size: 500
+    database: mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/delivery?useUnicode=true&characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Seoul
+    username: root
+    password: root

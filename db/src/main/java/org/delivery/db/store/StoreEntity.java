@@ -27,12 +27,12 @@ public class StoreEntity extends BaseEntity {
     @Column(length = 150, nullable = false)
     private String address;
 
-    @Enumerated(EnumType.STRING)
-    @Column(length = 50, nullable = false)
+    @Column(length = 50, nullable = false, columnDefinition = "VARCHAR")
+    @Enumerated(value = EnumType.STRING)
     private StoreStatus status;
 
-    @Enumerated(EnumType.STRING)
-    @Column(length = 50, nullable = false)
+    @Column(length = 50, nullable = false, columnDefinition = "VARCHAR")
+    @Enumerated(value = EnumType.STRING)
     private StoreCategory category;
 
     private double star;

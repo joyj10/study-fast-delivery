@@ -30,7 +30,7 @@ public class UserEntity extends BaseEntity {
     @Column(length = 100, nullable = false)
     private String password;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50, nullable = false, columnDefinition = "VARCHAR")
     @Enumerated(value = EnumType.STRING)
     private UserStatus status;
 
