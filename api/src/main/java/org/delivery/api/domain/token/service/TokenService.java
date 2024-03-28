@@ -1,8 +1,8 @@
 package org.delivery.api.domain.token.service;
 
 import lombok.RequiredArgsConstructor;
-import org.delivery.api.comon.error.ErrorCode;
-import org.delivery.api.comon.exception.ApiException;
+import org.delivery.api.common.error.ErrorCode;
+import org.delivery.api.common.exception.ApiException;
 import org.delivery.api.domain.token.ifs.TokenHelperIfs;
 import org.delivery.api.domain.token.model.TokenDto;
 import org.springframework.stereotype.Service;

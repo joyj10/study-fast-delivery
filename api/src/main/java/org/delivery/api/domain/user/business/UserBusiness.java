@@ -1,7 +1,7 @@
 package org.delivery.api.domain.user.business;
 
 import lombok.RequiredArgsConstructor;
-import org.delivery.api.comon.annotation.Business;
+import org.delivery.api.common.annotation.Business;
 import org.delivery.api.domain.token.business.TokenBusiness;
 import org.delivery.api.domain.token.controller.model.TokenResponse;
 import org.delivery.api.domain.user.controller.model.UserLoginRequest;

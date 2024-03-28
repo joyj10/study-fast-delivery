@@ -1,8 +1,8 @@
 package org.delivery.api.domain.storemenu.service;
 
 import lombok.RequiredArgsConstructor;
-import org.delivery.api.comon.error.ErrorCode;
-import org.delivery.api.comon.exception.ApiException;
+import org.delivery.api.common.error.ErrorCode;
+import org.delivery.api.common.exception.ApiException;
 import org.delivery.db.storemenu.StoreMenuEntity;
 import org.delivery.db.storemenu.StoreMenuRepository;
 import org.springframework.stereotype.Service;
@@ -22,6 +22,11 @@ public class StoreMenuService {
         Optional<StoreMenuEntity> opt = storeMenuRepository.findFirstByIdAndStatusOrderByIdDesc(id, REGISTERED);
         return opt.orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT));
     }
+
+    public List<StoreMenuEntity> getStoreMenuListWithThrow(List<Long> idList) {
+        return storeMenuRepository.findAllByIdInAndStatus(idList, REGISTERED);
+    }
+
 
     public List<StoreMenuEntity> getStoreMenuByStoreId(Long storeId) {
         return storeMenuRepository.findAllByStoreIdAndStatusOrderBySequenceDesc(storeId, REGISTERED);
