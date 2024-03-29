@@ -19,6 +19,11 @@ import static org.delivery.db.userorder.enums.UserOrderStatus.*;
 public class UserOrderService {
     private final UserOrderRepository userOrderRepository;
 
+    public UserOrderEntity getUserOrderWithOutStatusWithThrow(Long id, Long userId) {
+        return userOrderRepository.findByIdAndUserId(id, userId)
+                .orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT));
+    }
+
     public UserOrderEntity getUserOrderWithThrow(Long id, Long userId) {
         return userOrderRepository.findByIdAndStatusAndUserId(id, REGISTERED, userId)
                 .orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT));
