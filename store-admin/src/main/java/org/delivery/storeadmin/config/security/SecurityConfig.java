@@ -7,6 +7,8 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -40,5 +42,13 @@ public class SecurityConfig {
                 .formLogin(Customizer.withDefaults());
 
         return httpSecurity.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        // spring security 는 BCryptPasswordEncoder 사용
+        // hash 방식으로 암호화 (salt 추가 해시로 저장하고, 해시를 시켜서 두 값이 동일한지 확인한느 형태)
+        // decoding 불가, Encoding 만 가능해서 두개의 값을 비교해서 체크
+        return new BCryptPasswordEncoder() ;
     }
 }
