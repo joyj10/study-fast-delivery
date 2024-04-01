@@ -20,6 +20,7 @@ repositories {
 
 dependencies {
     implementation project(':db')
+    implementation project(':common')
 
     // lombok
     compileOnly 'org.projectlombok:lombok'
@@ -39,6 +40,9 @@ dependencies {
 
     // thymeleaf
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // rabbitMQ
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
 
 }
 
