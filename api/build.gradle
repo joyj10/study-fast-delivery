@@ -20,6 +20,7 @@ repositories {
 
 dependencies {
     implementation project(':db')
+    implementation project(':common')
 
     // lombok
     compileOnly 'org.projectlombok:lombok'
