@@ -47,7 +47,7 @@ public class UserOrderBusiness {
     @Transactional
     public UserOrderResponse userOrder(User user, UserOrderRequest body) {
         List<StoreMenuEntity> storeMenuEntityList = storeMenuService.getStoreMenuListWithThrow(body.getStoreMenuIdList());
-        UserOrderEntity userOrderEntity = userOrderConverter.toEntity(user, storeMenuEntityList);
+        UserOrderEntity userOrderEntity = userOrderConverter.toEntity(user, body.getStoreId(), storeMenuEntityList);
 
         // 주문
         UserOrderEntity newUserOrderEntity = userOrderService.order(userOrderEntity);
