@@ -9,8 +9,10 @@ import lombok.experimental.SuperBuilder;
 import org.delivery.db.BaseEntity;
 import org.delivery.db.store.enums.StoreCategory;
 import org.delivery.db.store.enums.StoreStatus;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -48,4 +50,8 @@ public class StoreEntity extends BaseEntity {
 
     @Column(length = 20)
     private String phoneNumber;
+
+    @Column(updatable = false)
+    @CreatedDate
+    private LocalDateTime createdAt;
 }

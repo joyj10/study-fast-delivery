@@ -32,7 +32,6 @@ public class StoreService {
                 .map(it -> {
                     it.setStar(0);
                     it.setStatus(StoreStatus.REGISTERED);
-                    // TODO 등록 일시
                     return storeRepository.save(storeEntity);
                 })
                 .orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT));
