@@ -19,21 +19,23 @@ import java.util.Objects;
 public class TokenService {
     private final TokenHelperIfs tokenHelperIfs;
 
+    private static final String USER_ID = "userId";
+
     public TokenDto issueAccessToken(Long userId) {
         Map<String, Object> data = new HashMap<>();
-        data.put("userId", userId);
+        data.put(USER_ID, userId);
         return tokenHelperIfs.issueAccessToken(data);
     }
 
     public TokenDto issueRefreshToken(Long userId) {
         Map<String, Object> data = new HashMap<>();
-        data.put("userId", userId);
+        data.put(USER_ID, userId);
         return tokenHelperIfs.issueRefreshToken(data);
     }
 
     public Long validationToken(String token) {
         Map<String, Object> map = tokenHelperIfs.validationTokenWithThrow(token);
-        Object userId = map.get("userId");
+        Object userId = map.get(USER_ID);
         Objects.requireNonNull(userId, () -> {throw new ApiException(ErrorCode.NULL_POINT);});
         return Long.parseLong(userId.toString());
     }

@@ -36,10 +36,8 @@ public class UserSseConnection {
         this.objectMapper = objectMapper;
 
         // on completion
-        this.sseEmitter.onCompletion(() -> {
-            // connection pool remove
-            connectionPoolIfs.onCompletionCallback(this);
-        });
+        // connection pool remove
+        this.sseEmitter.onCompletion(() ->  connectionPoolIfs.onCompletionCallback(this));
 
         // on timeout
         this.sseEmitter.onTimeout(this.sseEmitter::complete);
